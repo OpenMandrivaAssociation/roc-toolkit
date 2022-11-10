@@ -13,17 +13,17 @@ BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRequires:	gengetopt
 #BuildRequires:	ragel-devel
-BuildRequires:	libuv-devel
-BuildRequires:	libunwind-devel
-BuildRequires:	sox-devel
-BuildRequires:	pulseaudio-libs-devel
-BuildRequires:	openfec-devel
-BuildRequires:	cpputest-devel
-BuildRequires:	sphinx
-BuildRequires:	python3-sphinx
-BuildRequires:	python3-breathe
+BuildRequires:	pkgconfig(libuv)
+#BuildRequires:	libunwind-devel
+BuildRequires:	pkgconfig(sox)
+BuildRequires:	pkgconfig(libpulse)
+#BuildRequires:	openfec-devel
+#BuildRequires:	pkgconfig(cpputest)
+BuildRequires:	python-sphinx
+BuildRequires:	python-breathe
+
 # https://github.com/roc-streaming/roc-toolkit/issues/481
-Patch0:		roc-toolkit-0.1.5-no-explicit-cpp98.patch
+#Patch0:		roc-toolkit-0.1.5-no-explicit-cpp98.patch
  
 %description
 Roc is a toolkit for real-time audio streaming over the network.
@@ -53,20 +53,11 @@ Documentation for roc-toolkit.
 %autosetup -p1 -n %{name}-%{git_commit}
  
 %build
-scons %{?_smp_mflags} --with-openfec-includes=%{_includedir}/openfec \
-  CFLAGS="%{build_cflags}" CXXFLAGS="%{build_cxxflags}" LDFLAGS="%{build_ldflags}"
-scons docs
+scons
  
 %install
-scons install --with-openfec-includes=%{_includedir}/openfec --prefix=%{buildroot}%{_prefix} \
-  --libdir=%{buildroot}%{_libdir}
- 
-%check
-# https://github.com/roc-streaming/roc-toolkit/issues/480
-%ifnarch i686 armv7hl
-scons test --with-openfec-includes=%{_includedir}/openfec
-%endif
- 
+scons install 
+
 %files
 %license LICENSE
 %doc README.md CONTRIBUTING.md
