@@ -50,7 +50,7 @@ Summary: Documentation for roc-toolkit
 Documentation for roc-toolkit.
  
 %prep
-%autosetup -p1 -n %{name}-%{git_commit}
+%autosetup -p1 -n %{name}-%{version}
  
 %build
 scons
