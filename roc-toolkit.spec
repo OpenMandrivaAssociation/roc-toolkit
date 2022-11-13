@@ -14,7 +14,7 @@ BuildRequires:	autoconf
 BuildRequires:	gengetopt
 #BuildRequires:	ragel-devel
 BuildRequires:	pkgconfig(libuv)
-#BuildRequires:	libunwind-devel
+BuildRequires:	pkgconfig(libunwind)
 BuildRequires:	pkgconfig(sox)
 BuildRequires:	pkgconfig(libpulse)
 #BuildRequires:	openfec-devel
