@@ -17,7 +17,7 @@ BuildRequires:	pkgconfig(libuv)
 BuildRequires:	pkgconfig(libunwind)
 BuildRequires:	pkgconfig(sox)
 BuildRequires:	pkgconfig(libpulse)
-#BuildRequires:	openfec-devel
+BuildRequires:	openfec-devel
 #BuildRequires:	pkgconfig(cpputest)
 BuildRequires:	python-sphinx
 BuildRequires:	python-breathe
