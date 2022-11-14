@@ -53,10 +53,11 @@ Documentation for roc-toolkit.
 %autosetup -p1 -n %{name}-%{version}
  
 %build
-scons
+scons --with-openfec-includes=%{_includedir}/openfec \
  
 %install
-scons install 
+scons install --with-openfec-includes=%{_includedir}/openfec --prefix=%{buildroot}%{_prefix} \
+  --libdir=%{buildroot}%{_libdir}
 
 %files
 %license LICENSE
