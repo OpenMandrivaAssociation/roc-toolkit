@@ -12,7 +12,7 @@ BuildRequires:  scons
 BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRequires:	gengetopt
-BuildRequires:	ragel-devel
+BuildRequires:	ragel
 BuildRequires:	pkgconfig(libuv)
 BuildRequires:	pkgconfig(libunwind)
 BuildRequires:	pkgconfig(sox)
