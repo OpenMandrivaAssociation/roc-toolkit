@@ -8,6 +8,7 @@ Summary:	Real-time audio streaming
 License:	MPL-2.0 AND LGPL-2.1-or-later AND CECILL-C
 URL:		https://github.com/roc-streaming/roc-toolkit
 Source0:	https://github.com/roc-streaming/roc-toolkit/archive/%{?snapshot:refs/heads/master}%{!?snapshot:v%{version}/%{name}-%{version}}.tar.gz
+Patch:		roc-c++unwind.patch
 
 BuildRequires:	pkgconfig(python)
 BuildRequires:  scons
