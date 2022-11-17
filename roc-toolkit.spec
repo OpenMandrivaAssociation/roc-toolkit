@@ -21,6 +21,7 @@ BuildRequires:	pkgconfig(sox)
 BuildRequires:	pkgconfig(libpulse)
 BuildRequires:	openfec-devel
 #BuildRequires:	pkgconfig(cpputest)
+BuildRequires:	doxygen
 BuildRequires:	python-sphinx
 BuildRequires:	python-breathe
 
