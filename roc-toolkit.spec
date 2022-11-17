@@ -59,7 +59,7 @@ scons \
  
 %install
 scons install --with-openfec-includes=%{_includedir}/openfec --prefix=%{buildroot}%{_prefix} \
-  --libdir=%{buildroot}%{_libdir}
+  --libdir=%{buildroot}%{_libdir} --disable-tests
 
 %files
 %license LICENSE
@@ -74,7 +74,7 @@ scons install --with-openfec-includes=%{_includedir}/openfec --prefix=%{buildroo
 %{_bindir}/roc-conv
 %{_bindir}/roc-recv
 %{_bindir}/roc-send
-%{_mandir}/man1/*.1.gz
+%{_mandir}/man1/*.1*
  
 %files doc
 %doc html
