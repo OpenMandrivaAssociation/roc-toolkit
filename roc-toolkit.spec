@@ -53,7 +53,9 @@ Documentation for roc-toolkit.
 %autosetup -p1 -n %{name}-%{version}
  
 %build
-scons --with-openfec-includes=%{_includedir}/openfec \
+scons \
+	--with-openfec-includes=%{_includedir}/openfec \
+	--disable-tests
  
 %install
 scons install --with-openfec-includes=%{_includedir}/openfec --prefix=%{buildroot}%{_prefix} \
