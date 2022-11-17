@@ -1,11 +1,13 @@
-	
+%define snapshot 20221117
+%undefine _debugsource_packages
+
 Name:		roc-toolkit
-Version:	0.1.5
-Release:	1
+Version:	0.1.6
+Release:	%{?snapshot:0.%{snapshot}.}1
 Summary:	Real-time audio streaming
 License:	MPL-2.0 AND LGPL-2.1-or-later AND CECILL-C
 URL:		https://github.com/roc-streaming/roc-toolkit
-Source0:	https://github.com/roc-streaming/roc-toolkit/archive/v%{version}/%{name}-%{version}.tar.gz
+Source0:	https://github.com/roc-streaming/roc-toolkit/archive/%{?snapshot:refs/heads/master}%{!?snapshot:v%{version}/%{name}-%{version}}.tar.gz
 
 BuildRequires:	pkgconfig(python)
 BuildRequires:  scons
@@ -50,7 +52,7 @@ Summary: Documentation for roc-toolkit
 Documentation for roc-toolkit.
  
 %prep
-%autosetup -p1 -n %{name}-%{version}
+%autosetup -p1 -n %{name}-%{?snapshot:master}%{!?snapshot:%{version}}
  
 %build
 scons \
