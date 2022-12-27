@@ -59,6 +59,7 @@ Documentation for roc-toolkit.
 %build
 scons \
 	--with-openfec-includes=%{_includedir}/openfec \
+	--compiler=COMPILER=clang \
 	--disable-tests
  
 %install
