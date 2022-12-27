@@ -1,0 +1,27 @@
+From ebb39cbf93977215932da0b61fc852798a86b8f9 Mon Sep 17 00:00:00 2001
+From: june34876 <junelinn@umich.edu>
+Date: Mon, 12 Dec 2022 19:04:41 +0800
+Subject: [PATCH] Error handling for invalid compiler version
+
+---
+ scripts/scons_plugin/parsers.py | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/scripts/scons_plugin/parsers.py b/scripts/scons_plugin/parsers.py
+index 284994729..3b27237c7 100644
+--- a/scripts/scons_plugin/parsers.py
++++ b/scripts/scons_plugin/parsers.py
+@@ -72,9 +72,10 @@ def getverstr():
+                     if m:
+                         return m.group(1)
+ 
+-            return None
+-        except:
+-            pass
++            raise Exception("Invalid compiler version.")
++        except Exception as e:
++            print(e)
++            raise e
+ 
+     ver = getverstr()
+     if ver:
