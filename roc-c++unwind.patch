@@ -1,10 +1,10 @@
-diff -up roc-toolkit-master/src/modules/roc_core/target_libunwind/roc_core/backtrace.cpp.omv~ roc-toolkit-master/src/modules/roc_core/target_libunwind/roc_core/backtrace.cpp
---- roc-toolkit-master/src/modules/roc_core/target_libunwind/roc_core/backtrace.cpp.omv~	2022-11-17 23:55:41.207112993 +0100
-+++ roc-toolkit-master/src/modules/roc_core/target_libunwind/roc_core/backtrace.cpp	2022-11-17 23:56:10.889282281 +0100
-@@ -7,6 +7,7 @@
-  */
+diff -up roc-toolkit-0.2.1/src/internal_modules/roc_core/target_libunwind/roc_core/backtrace.cpp.1~ roc-toolkit-0.2.1/src/internal_modules/roc_core/target_libunwind/roc_core/backtrace.cpp
+--- roc-toolkit-0.2.1/src/internal_modules/roc_core/target_libunwind/roc_core/backtrace.cpp.1~	2023-01-01 21:12:38.145032822 +0100
++++ roc-toolkit-0.2.1/src/internal_modules/roc_core/target_libunwind/roc_core/backtrace.cpp	2023-01-01 21:19:10.635435557 +0100
+@@ -15,6 +15,7 @@
+ #define alignas(x) ROC_ATTR_ALIGNED(x)
+ #endif
  
- #define UNW_LOCAL_ONLY
 +#define alignas _Alignas // make the libunwind/C++ combo great again
  #include <libunwind.h>
  

@@ -1,4 +1,4 @@
-%define snapshot 20221117
+#define snapshot 20221117
 %undefine _debugsource_packages
 
 Name:		roc-toolkit
@@ -59,15 +59,15 @@ Documentation for roc-toolkit.
 %build
 scons \
 	--with-openfec-includes=%{_includedir}/openfec \
-	--disable-tests
- 
+	--disable-libunwind
+
 %install
 scons install --with-openfec-includes=%{_includedir}/openfec --prefix=%{buildroot}%{_prefix} \
-  --libdir=%{buildroot}%{_libdir} --disable-tests
+  --libdir=%{buildroot}%{_libdir}
 
 %files
 %license LICENSE
-%doc README.md CONTRIBUTING.md
+%doc README.md
 %{_libdir}/libroc.so.0*
  
 %files devel
@@ -81,4 +81,3 @@ scons install --with-openfec-includes=%{_includedir}/openfec --prefix=%{buildroo
 %{_mandir}/man1/*.1*
  
 %files doc
-%doc html
