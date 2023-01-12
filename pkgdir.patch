@@ -1,0 +1,12 @@
+diff -ru roc-toolkit-0.2.1/src/SConscript roc-toolkit-0.2.1.new/src/SConscript
+--- roc-toolkit-0.2.1/src/SConscript	2022-12-26 12:02:40.000000000 +0100
++++ roc-toolkit-0.2.1.new/src/SConscript	2023-01-10 10:14:45.212536410 +0100
+@@ -141,7 +141,7 @@
+                 desc='Real-time audio streaming over the network.',
+                 url='https://roc-streaming.org',
+                 version=env['ROC_VERSION'])
+-            env.AddDistFile(env['PKG_CONFIG_PATH'], pc_file)
++            env.AddDistFile(env['ROC_SYSTEM_LIBDIR'] + '/pkgconfig', pc_file)
+ 
+ if GetOption('enable_examples'):
+     examples_env = subenvs.examples.Clone()
