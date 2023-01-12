@@ -20,6 +20,7 @@ BuildRequires:	pkgconfig(libuv)
 BuildRequires:	pkgconfig(libunwind)
 BuildRequires:	pkgconfig(sox)
 BuildRequires:	pkgconfig(libpulse)
+BuildRequires:	pkgconfig(speexdsp)
 BuildRequires:	openfec-devel
 #BuildRequires:	pkgconfig(cpputest)
 BuildRequires:	doxygen
