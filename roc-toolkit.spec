@@ -59,11 +59,11 @@ Documentation for roc-toolkit.
 %build
 scons \
 	--with-openfec-includes=%{_includedir}/openfec \
-	--disable-libunwind
+	--disable-libunwind CC=%{__cc} CXX=%{__cxx}
 
 %install
 scons install --with-openfec-includes=%{_includedir}/openfec --prefix=%{buildroot}%{_prefix} \
-  --libdir=%{buildroot}%{_libdir}
+  --libdir=%{buildroot}%{_libdir} CC=%{__cc} CXX=%{__cxx}
 
 %files
 %license LICENSE
