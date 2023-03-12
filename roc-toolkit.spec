@@ -22,6 +22,7 @@ BuildRequires:	pkgconfig(libunwind)
 BuildRequires:	pkgconfig(sox)
 BuildRequires:	pkgconfig(libpulse)
 BuildRequires:	pkgconfig(speexdsp)
+BuildRequires:	pkgconfig(openssl)
 BuildRequires:	openfec-devel
 #BuildRequires:	pkgconfig(cpputest)
 BuildRequires:	doxygen
