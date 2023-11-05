@@ -2,7 +2,7 @@
 %undefine _debugsource_packages
 
 Name:		roc-toolkit
-Version:	0.2.5
+Version:	0.2.6
 Release:	%{?snapshot:0.%{snapshot}.}1
 Summary:	Real-time audio streaming
 License:	MPL-2.0 AND LGPL-2.1-or-later AND CECILL-C
