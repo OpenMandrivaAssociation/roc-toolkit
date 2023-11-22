@@ -79,7 +79,7 @@ scons install --with-openfec-includes=%{_includedir}/openfec --prefix=%{buildroo
 %{_libdir}/pkgconfig/roc.pc
  
 %files utils
-#{_bindir}/roc-conv
+%{_bindir}/roc-copy
 %{_bindir}/roc-recv
 %{_bindir}/roc-send
 %{_mandir}/man1/*.1*
