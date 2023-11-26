@@ -1,6 +1,9 @@
 #define snapshot 20221117
 %undefine _debugsource_packages
 
+%define libname %mklibname roc
+%define devname %mklibname roc -d
+
 Name:		roc-toolkit
 Version:	0.3.0
 Release:	%{?snapshot:0.%{snapshot}.}1
@@ -26,35 +29,38 @@ BuildRequires:	pkgconfig(openssl)
 BuildRequires:	openfec-devel
 #BuildRequires:	pkgconfig(cpputest)
 BuildRequires:	doxygen
-BuildRequires:	python-sphinx
-BuildRequires:	python-breathe
+BuildRequires:	python%{pyver}dist(sphinx)
+BuildRequires:	python%{pyver}dist(breathe)
 
 # https://github.com/roc-streaming/roc-toolkit/issues/481
 #Patch0:		roc-toolkit-0.1.5-no-explicit-cpp98.patch
  
 %description
 Roc is a toolkit for real-time audio streaming over the network.
+
+%package -n %{libname}
+Summary: Libraries of the ROC audio streaming toolkit
+Group: System/Libraries
+%rename %{name}
+
+%description -n %{libname}
+Libraries of the ROC audio streaming toolkit
  
-%package devel
+%package -n %{devname}
 Summary: Development libraries for roc-toolkit
-Requires: %{name}%{?_isa} = %{version}-%{release}
+Requires: %{libname}%{?_isa} = %{EVRD}
+%rename %{name}-devel
  
-%description devel
+%description -n %{devname}
 The roc-toolkit-devel package contains header files necessary for
 developing programs using roc-toolkit.
  
 %package utils
 Summary: Utilities for roc-toolkit
-Requires: %{name}%{?_isa} = %{version}-%{release}
+Requires: %{libname}%{?_isa} = %{EVRD}
  
 %description utils
 Utilities for roc-toolkit.
- 
-%package doc
-Summary: Documentation for roc-toolkit
- 
-%description doc
-Documentation for roc-toolkit.
  
 %prep
 %autosetup -p1 -n %{name}-%{?snapshot:master}%{!?snapshot:%{version}}
@@ -62,18 +68,18 @@ Documentation for roc-toolkit.
 %build
 scons \
 	--with-openfec-includes=%{_includedir}/openfec \
-	--disable-libunwind CC=%{__cc} CXX=%{__cxx}
+	--disable-libunwind CC="%{__cc}" CXX="%{__cxx}"
 
 %install
 scons install --with-openfec-includes=%{_includedir}/openfec --prefix=%{buildroot}%{_prefix} \
-  --libdir=%{buildroot}%{_libdir} CC=%{__cc} CXX=%{__cxx}
+  --libdir=%{buildroot}%{_libdir} CC="%{__cc}" CXX="%{__cxx}"
 
-%files
+%files -n %{libname}
 %license LICENSE
 %doc README.md
 %{_libdir}/libroc.so.0*
  
-%files devel
+%files -n %{devname}
 %{_includedir}/roc
 %{_libdir}/libroc.so
 %{_libdir}/pkgconfig/roc.pc
@@ -83,5 +89,3 @@ scons install --with-openfec-includes=%{_includedir}/openfec --prefix=%{buildroo
 %{_bindir}/roc-recv
 %{_bindir}/roc-send
 %{_mandir}/man1/*.1*
- 
-%files doc
