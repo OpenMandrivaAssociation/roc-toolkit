@@ -5,7 +5,7 @@
 %define devname %mklibname roc -d
 
 Name:		roc-toolkit
-Version:	0.3.0
+Version:	0.4.0
 Release:	%{?snapshot:0.%{snapshot}.}1
 Summary:	Real-time audio streaming
 License:	MPL-2.0 AND LGPL-2.1-or-later AND CECILL-C
