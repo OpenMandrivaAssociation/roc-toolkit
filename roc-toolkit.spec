@@ -24,6 +24,7 @@ BuildRequires:	pkgconfig(libuv)
 BuildRequires:	pkgconfig(libunwind)
 BuildRequires:	pkgconfig(sox)
 BuildRequires:	pkgconfig(libpulse)
+BuildRequires:	pkgconfig(sndfile)
 BuildRequires:	pkgconfig(speexdsp)
 BuildRequires:	pkgconfig(openssl)
 BuildRequires:	openfec-devel
