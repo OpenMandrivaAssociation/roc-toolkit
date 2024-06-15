@@ -5,14 +5,14 @@
 %define devname %mklibname roc -d
 
 Name:		roc-toolkit
-Version:	0.3.0
+Version:	0.4.0
 Release:	%{?snapshot:0.%{snapshot}.}1
 Summary:	Real-time audio streaming
 License:	MPL-2.0 AND LGPL-2.1-or-later AND CECILL-C
 URL:		https://github.com/roc-streaming/roc-toolkit
 Source0:	https://github.com/roc-streaming/roc-toolkit/archive/%{?snapshot:refs/heads/master}%{!?snapshot:v%{version}/%{name}-%{version}}.tar.gz
 Patch0:		roc-c++unwind.patch
-Patch1:		https://src.fedoraproject.org/fork/wtaymans/rpms/roc-toolkit/raw/d31d30281a036556dae16f72e7b3d641cb1ce2ad/f/pkgdir.patch
+#Patch1:		https://src.fedoraproject.org/fork/wtaymans/rpms/roc-toolkit/raw/d31d30281a036556dae16f72e7b3d641cb1ce2ad/f/pkgdir.patch
 
 BuildRequires:	pkgconfig(python)
 BuildRequires:  scons
@@ -24,6 +24,7 @@ BuildRequires:	pkgconfig(libuv)
 BuildRequires:	pkgconfig(libunwind)
 BuildRequires:	pkgconfig(sox)
 BuildRequires:	pkgconfig(libpulse)
+BuildRequires:	pkgconfig(sndfile)
 BuildRequires:	pkgconfig(speexdsp)
 BuildRequires:	pkgconfig(openssl)
 BuildRequires:	openfec-devel
