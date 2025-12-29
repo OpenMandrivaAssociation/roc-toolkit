@@ -72,9 +72,9 @@ Utilities for roc-toolkit.
 export PYTHONWARNINGS=default
 export PYTHONHASHSEED=0
 export PYTHONRECURSIONLIMIT=3000
+export CC=gcc
+export CXX=g++
 scons \
-	CC=gcc \
-  	CXX=g++ \
 	--with-openfec-includes=%{_includedir}/openfec \
 	--disable-libunwind CC="%{__cc}" CXX="%{__cxx}"
 
