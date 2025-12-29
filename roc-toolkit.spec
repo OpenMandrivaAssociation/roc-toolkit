@@ -68,6 +68,9 @@ Utilities for roc-toolkit.
 %autosetup -p1 -n %{name}-%{?snapshot:master}%{!?snapshot:%{version}}
  
 %build
+export PYTHONWARNINGS=default
+export PYTHONHASHSEED=0
+export PYTHONRECURSIONLIMIT=3000
 scons \
 	--with-openfec-includes=%{_includedir}/openfec \
 	--disable-libunwind CC="%{__cc}" CXX="%{__cxx}"
