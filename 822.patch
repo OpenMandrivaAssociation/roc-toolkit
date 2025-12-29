@@ -1,0 +1,24 @@
+From a82ec358d46b5e4c91e1828f24513479aaed1c86 Mon Sep 17 00:00:00 2001
+From: Mikhail Baranov <baranov.mv@gmail.com>
+Date: Mon, 17 Nov 2025 19:23:09 +0100
+Subject: [PATCH] fixes panicks with sox 14.6.1-1
+
+The issue: https://gitlab.archlinux.org/archlinux/packaging/packages/roc-toolkit/-/issues/1
+Default capacity of driver list of 128 became too low, pump it up to 256
+---
+ src/internal_modules/roc_sndio/driver.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/internal_modules/roc_sndio/driver.h b/src/internal_modules/roc_sndio/driver.h
+index ff2406f99..dc5bc5215 100644
+--- a/src/internal_modules/roc_sndio/driver.h
++++ b/src/internal_modules/roc_sndio/driver.h
+@@ -21,7 +21,7 @@ namespace sndio {
+ class IBackend;
+ 
+ //! Maximum number of drivers.
+-static const size_t MaxDrivers = 128;
++static const size_t MaxDrivers = 256;
+ 
+ //! Driver type.
+ enum DriverType {
