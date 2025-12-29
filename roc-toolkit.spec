@@ -1,3 +1,4 @@
+%global _lto_cflags %{nil}
 #define snapshot 20221117
 %undefine _debugsource_packages
 
